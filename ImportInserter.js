@@ -284,7 +284,7 @@ define(function (require, exports, module) {
             trailingWs = nChars(" ", eqColumn - naturalEqColumn);
         }
         
-        var importName = leadingWs + "import " + importModuleInfo.moduleName + trailingWs;
+        var importName = "import " + importModuleInfo.moduleName + trailingWs;
         var importLength = importName.length;
         var length = 32; //React ES6 import format
         for(i = 0; i < (length - importLength); i++) {
@@ -292,7 +292,7 @@ define(function (require, exports, module) {
         }
         
         // Make the edit
-        var code = importName + "from " + "'" + importModuleInfo.requirePath + "';" + trailingDelim + "\n";
+        var code = importName + "from " + "'" + importModuleInfo.requirePath + "';" + "\n";
         
         editor.document.replaceRange(code, insertionPos);
     }
