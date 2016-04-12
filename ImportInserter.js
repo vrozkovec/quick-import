@@ -284,8 +284,15 @@ define(function (require, exports, module) {
             trailingWs = nChars(" ", eqColumn - naturalEqColumn);
         }
         
+        var importName = leadingWs + "import " + importModuleInfo.moduleName + trailingW;
+        var importLength = importName.length;
+        var length = 33; //React ES6 import format
+        for(i = 0; i < (length - importLength); i++) {
+            importName += " ";
+        }
+        
         // Make the edit
-        var code = leadingWs + "import " + importModuleInfo.moduleName + trailingWs + " from " + "\"" + importModuleInfo.requirePath + "\"" + trailingDelim + "\n";
+        var code = importName + "from " + "'" + importModuleInfo.requirePath + "';" + trailingDelim + "\n";
         
         editor.document.replaceRange(code, insertionPos);
     }
