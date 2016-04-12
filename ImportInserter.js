@@ -285,7 +285,7 @@ define(function (require, exports, module) {
         }
         
         // Make the edit
-        var code = leadingWs + importModuleInfo.moduleName + trailingWs + " = " + requireCall + "(\"" + importModuleInfo.requirePath + "\")" + trailingDelim + "\n";
+        var code = leadingWs + "import " + importModuleInfo.moduleName + trailingWs + " from " + "\"" + importModuleInfo.requirePath + "\"" + trailingDelim + "\n";
         
         editor.document.replaceRange(code, insertionPos);
     }
