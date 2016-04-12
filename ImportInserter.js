@@ -286,7 +286,7 @@ define(function (require, exports, module) {
         
         var importName = leadingWs + "import " + importModuleInfo.moduleName + trailingWs;
         var importLength = importName.length;
-        var length = 33; //React ES6 import format
+        var length = 32; //React ES6 import format
         for(i = 0; i < (length - importLength); i++) {
             importName += " ";
         }
